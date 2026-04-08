@@ -1,42 +1,39 @@
 # Obsidian MD Opener for macOS
 
-Double-click `.md` files in Finder and open them in Obsidian.
+A small macOS Automator workflow that lets you double-click `.md` files in Finder and open them in Obsidian.
 
-This repository provides a small macOS Automator workflow for people who keep Markdown files inside an Obsidian vault and want Finder double-click to reliably open the clicked file in Obsidian.
+This is useful when Markdown files are generated outside Obsidian, for example by coding tools or AI agents, and you want to review them in Obsidian immediately.
 
-It is especially useful when tools like Codex generate Markdown files and you want to review them in Obsidian immediately.
+---
 
-## What problem this solves
+## Why this exists
 
-On macOS, setting `.md` files to open with Obsidian does not always reliably open the clicked file inside the current vault.
+On macOS, even if `.md` files are associated with Obsidian, double-clicking a Markdown file in Finder does not always open that specific file correctly inside Obsidian.
 
-This workflow works around that by:
+This workflow solves that by passing the clicked file path to Obsidian through an `obsidian://open?path=...` URL.
 
-1. Receiving the clicked file path from Finder
-2. Converting it to an `obsidian://open?path=...` URL
-3. Opening that URL in Obsidian
+In short:
 
-## Result
+**double-click Markdown in Finder → open that file in Obsidian**
 
-After setup, double-clicking a `.md` file in Finder opens that file in Obsidian.
+---
 
-## Requirements
+## What it does
 
-- macOS
-- Obsidian installed
-- Markdown files stored in a location accessible by Obsidian
-- Automator
+This Automator app:
 
-## Automator script
+1. receives the file path from Finder
+2. converts it into an Obsidian URL
+3. opens the file in Obsidian
 
-Create a new **Application** in Automator and add **Run Shell Script**.
+---
 
-Important settings:
+## Script
+
+Use the following script in an Automator **Application** with:
 
 - Shell: `/bin/zsh`
 - Pass input: `as arguments`
-
-Paste this script:
 
 ```bash
 for f in "$@"; do
