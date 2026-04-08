@@ -1,5 +1,8 @@
 # Obsidian MD Opener for macOS
 
+[日本語はこちら](./README.ja.md)
+
+A small macOS Automator workflow that lets you double-click `.md` files in Finder and open them in Obsidian.
 A small macOS Automator workflow that lets you double-click `.md` files in Finder and open them in Obsidian.
 
 This is useful when Markdown files are generated outside Obsidian, for example by coding tools or AI agents, and you want to review them in Obsidian immediately.
