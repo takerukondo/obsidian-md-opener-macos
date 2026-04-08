@@ -1,0 +1,1 @@
+# obsidian-md-opener-macos
